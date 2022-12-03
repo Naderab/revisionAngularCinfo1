@@ -1,0 +1,24 @@
+<form #form="ngForm" (ngSubmit)="add()">
+<div class="form-group">
+    Name : <input type="text" name="name" class="form-control" [(ngModel)]="product.name" required  #name="ngModel">
+<div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+    Name is required
+</div>
+</div>
+<div class="form-group">
+    Price :<input type="number" name="price" class="form-control" [(ngModel)]="product.price" pattern="[0-9]+" #price="ngModel">
+    <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+        Price invalid
+    </div>
+</div>
+<div class="form-group">
+    Description : <input type="text" name="description" class="form-control" [(ngModel)]="product.description" minlength="10" #description="ngModel">
+    <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+        Description must have at least 10 caracters
+    </div>
+</div>
+<div class="form-group">
+    <input type="submit" class="form-control" [disabled]="form.invalid">
+
+</div>
+    </form>

@@ -1,0 +1,12 @@
+<!--<ul *ngFor="let p of productsList">
+    <li>{{p.name}}</li>
+    <li>Price : {{p.price}}</li>
+    <button>Buy</button>
+    <button>Détails</button>
+</ul> -->
+<fieldset *ngFor="let p of productsList" style="border: solid 1px black">
+<legend>{{p.name}}</legend>
+<p>Price : {{p.price}}</p>
+<button (click)="addToCart(p)">Buy</button>
+<button [routerLink]="['/details/',p.id]">Détails</button>
+</fieldset>
